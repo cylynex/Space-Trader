@@ -9,18 +9,23 @@ public class GameController : MonoBehaviour {
     SectorData sectorData;
     [SerializeField] Sector currentSector;
 
-    [Header("UI")]
-    
+    [Header("UI")]    
     [SerializeField] Text sectorFlavorText;
     [SerializeField] Text sectorConnections;
     [SerializeField] Text sectorName;
 
+    [Header("Sectors")]
     [SerializeField] Transform sectorConnectionsBox;
+    [SerializeField] GameObject sectorDataBox;
     [SerializeField] GameObject changeSectorButton;
 
+    [Header("Planets")]
     [SerializeField] Transform planetConnectionsBox;
     [SerializeField] GameObject planetDataBox;
-    [SerializeField] GameObject landOnPlanetButton;
+
+    [Header("Ports")]
+    [SerializeField] Transform portConnectionsBox;
+    [SerializeField] GameObject portDataBox;
 
     private void Start() {
         print("Game Initialized");
@@ -35,39 +40,50 @@ public class GameController : MonoBehaviour {
         }
 
         sectorData = currentSector.GetSectorData();
+        SetupSectorDisplay();
         ShowConnections();
         ShowPlanets();
+        ShowPorts();
+    }
+
+    void SetupSectorDisplay() {
+        SetUIText(sectorName, sectorData.sectorName);
+        SetUIText(sectorFlavorText, sectorData.sectorFlavorText);
     }
 
     void ShowConnections() {
-        for (int i = 0;i < sectorData.connectedSectors.Length;i++) {
-            GameObject thisButton = Instantiate(changeSectorButton, transform.position, transform.rotation);
-            thisButton.transform.parent = sectorConnectionsBox;
-            thisButton.GetComponentInChildren<Text>().text = "M: "+sectorData.connectedSectors[i].sectorName;
-            Sector buttonSector = sectorData.connectedSectors[i];
-            Button button = thisButton.GetComponent<Button>();
-            button.onClick.AddListener(() => ChangeSector(buttonSector));
+        for (int s = 0; s < sectorData.connectedSectors.Length;s++) {
+            GameObject sectorBox = Instantiate(sectorDataBox, transform.position, transform.rotation);
+            sectorBox.transform.parent = sectorConnectionsBox;
+            sectorBox.GetComponent<SectorDataBoxPopulator>().PopulateData(sectorData.connectedSectors[s]);
         }
+
     }
 
     void ShowPlanets() {
         if (sectorData.planets != null) {
             for (int p = 0; p < sectorData.planets.Length; p++) {
-                print("planet found: " + sectorData.planets[p].planetName);
-
-                //GameObject thisButton = Instantiate(landOnPlanetButton, transform.position, transform.rotation);
                 GameObject planetBox = Instantiate(planetDataBox, transform.position, transform.rotation);
                 planetBox.transform.parent = planetConnectionsBox;
                 planetBox.GetComponent<PlanetDataBoxPopulator>().PopulateData(sectorData.planets[p]);
-
-
             }
         } else {
             print("no planets");
         }
     }
 
-    void ChangeSector(Sector newSector) {
+    void ShowPorts() {
+        if (sectorData.ports != null) {
+            for (int p = 0; p < sectorData.ports.Length; p++) {
+                GameObject portBox = Instantiate(portDataBox, transform.position, transform.rotation);
+                portBox.transform.parent = portConnectionsBox;
+                portBox.GetComponent<PortDataBoxPopulator>().PopulateData(sectorData.ports[p]);
+            }
+        }
+
+    }
+
+    public void ChangeSector(Sector newSector) {
         currentSector = newSector;
         InitializeSector();
     }

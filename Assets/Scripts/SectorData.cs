@@ -8,5 +8,6 @@ public class SectorData {
     public string sectorFlavorText;
     public Sector[] connectedSectors;
     public Planet[] planets;
+    public Port[] ports;
 
 }

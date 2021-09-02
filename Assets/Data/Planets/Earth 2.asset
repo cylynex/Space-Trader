@@ -10,6 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 92b001577a27e07418d3616cac9588f2, type: 3}
-  m_Name: CyPlanet
+  m_Name: Earth 2
   m_EditorClassIdentifier: 
-  planetName: CyPlanet
+  planetName: Earth 2
+  planetDescription: Starter planet where you can acquire basic goods and services? 
+    I dunno.

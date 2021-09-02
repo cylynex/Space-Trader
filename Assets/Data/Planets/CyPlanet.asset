@@ -10,6 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 92b001577a27e07418d3616cac9588f2, type: 3}
-  m_Name: Earth 2
+  m_Name: CyPlanet
   m_EditorClassIdentifier: 
-  planetName: Earth 2
+  planetName: CyPlanet
+  planetDescription: The first planet.  Obviously.

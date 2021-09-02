@@ -9,6 +9,7 @@ public class Sector : ScriptableObject {
     [TextArea(50, 100)] [SerializeField] public string sectorFlavorText;
     [SerializeField] public Sector[] connectedSectors;
     [SerializeField] public Planet[] planets;
+    [SerializeField] public Port[] ports;
 
     public SectorData GetSectorData() {
         SectorData sectorData = new SectorData();
@@ -16,6 +17,7 @@ public class Sector : ScriptableObject {
         sectorData.sectorFlavorText = sectorFlavorText;
         sectorData.connectedSectors = connectedSectors;
         sectorData.planets = planets;
+        sectorData.ports = ports;
         return sectorData;
     }
 

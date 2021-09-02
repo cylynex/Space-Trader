@@ -51,6 +51,7 @@ public class GameController : MonoBehaviour {
         SetUIText(sectorFlavorText, sectorData.sectorFlavorText);
     }
 
+    // TODO: THIS NEEDS TO BE ABSTRACTED
     void ScrubSectorData() {
         foreach (Transform child in sectorConnectionsBox) {
             if (child.gameObject.tag != "Label") {
@@ -59,11 +60,15 @@ public class GameController : MonoBehaviour {
         }
 
         foreach (Transform child in planetConnectionsBox) {
-            Destroy(child.gameObject);
+            if (child.gameObject.tag != "Label") {
+                Destroy(child.gameObject);
+            }
         }
 
         foreach (Transform child in portConnectionsBox) {
-            Destroy(child.gameObject);
+            if (child.gameObject.tag != "Label") {
+                Destroy(child.gameObject);
+            }
         }
     }
 

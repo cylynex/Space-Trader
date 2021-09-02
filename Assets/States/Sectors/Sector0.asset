@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd63a7d203bf1b74085ac2e413eaa951, type: 3}
+  m_Name: Sector0
+  m_EditorClassIdentifier: 
+  sectorName: Sector 0
+  sectorFlavorText: This is Sector 0.  Where all the action happens.
+  connectedSectors:
+  - {fileID: 11400000, guid: 7d714437a256353409d5e875989ddf46, type: 2}
+  - {fileID: 11400000, guid: a157e384760eca54b995e5fc96d24507, type: 2}
+  - {fileID: 11400000, guid: 1c6c06ce6e1e396498ecf81f1eb903ee, type: 2}
+  - {fileID: 11400000, guid: 1bfa6428603f58e458ef33ca608271f2, type: 2}

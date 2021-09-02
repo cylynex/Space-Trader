@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &447334392055371635
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 447334392055371628}
+  - component: {fileID: 447334392055371629}
+  m_Layer: 0
+  m_Name: GameController
+  m_TagString: GameController
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &447334392055371628
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 447334392055371635}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.3472168, y: -0.13936876, z: -2.711914}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &447334392055371629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 447334392055371635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94e19613aa967554dba2634b086ccf6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentSector: {fileID: 11400000, guid: 9a4507d9627ef1f4e8f1b46a707eef7a, type: 2}
+  sectorFlavorText: {fileID: 0}
+  sectorConnections: {fileID: 0}
+  sectorName: {fileID: 0}
+  sectorConnectionsBox: {fileID: 0}
+  sectorDataBox: {fileID: 6312838415349050460, guid: 2cf316350723ddc42b9a2f23fd2c1421,
+    type: 3}
+  changeSectorButton: {fileID: 2087033403230383417, guid: e6d43a3f0c5265448aee1bd5750f37b2,
+    type: 3}
+  planetConnectionsBox: {fileID: 0}
+  planetDataBox: {fileID: 7519768667968274215, guid: 988679f24735a904aa32e636a793c6f2,
+    type: 3}
+  portConnectionsBox: {fileID: 0}
+  portDataBox: {fileID: 3282646001895869071, guid: 002556ebec2077048a39d841a7dd2872,
+    type: 3}

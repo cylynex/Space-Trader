@@ -27,19 +27,18 @@ public class GameController : MonoBehaviour {
     [SerializeField] Transform portConnectionsBox;
     [SerializeField] GameObject portDataBox;
 
+    [Header("Transitional Information")]
+    [SerializeField] public Planet currentPlanet = null;
+
     private void Start() {
+        DontDestroyOnLoad(gameObject);
         print("Game Initialized");
         InitializeSector();
     }
 
     void InitializeSector() {
 
-        // Clear anything in the action box (currently just using sector connection box)
-        foreach (Transform child in sectorConnectionsBox) {
-            Destroy(child.gameObject);
-        }
-
-        sectorData = currentSector.GetSectorData();
+        ScrubSectorData();
         SetupSectorDisplay();
         ShowConnections();
         ShowPlanets();
@@ -47,8 +46,25 @@ public class GameController : MonoBehaviour {
     }
 
     void SetupSectorDisplay() {
+        sectorData = currentSector.GetSectorData();
         SetUIText(sectorName, sectorData.sectorName);
         SetUIText(sectorFlavorText, sectorData.sectorFlavorText);
+    }
+
+    void ScrubSectorData() {
+        foreach (Transform child in sectorConnectionsBox) {
+            if (child.gameObject.tag != "Label") {
+                Destroy(child.gameObject);
+            }
+        }
+
+        foreach (Transform child in planetConnectionsBox) {
+            Destroy(child.gameObject);
+        }
+
+        foreach (Transform child in portConnectionsBox) {
+            Destroy(child.gameObject);
+        }
     }
 
     void ShowConnections() {

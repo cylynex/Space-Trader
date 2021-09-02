@@ -14,8 +14,13 @@ public class GameController : MonoBehaviour {
     [SerializeField] Text sectorFlavorText;
     [SerializeField] Text sectorConnections;
     [SerializeField] Text sectorName;
+
     [SerializeField] Transform sectorConnectionsBox;
     [SerializeField] GameObject changeSectorButton;
+
+    [SerializeField] Transform planetConnectionsBox;
+    [SerializeField] GameObject planetDataBox;
+    [SerializeField] GameObject landOnPlanetButton;
 
     private void Start() {
         print("Game Initialized");
@@ -31,6 +36,7 @@ public class GameController : MonoBehaviour {
 
         sectorData = currentSector.GetSectorData();
         ShowConnections();
+        ShowPlanets();
     }
 
     void ShowConnections() {
@@ -41,6 +47,23 @@ public class GameController : MonoBehaviour {
             Sector buttonSector = sectorData.connectedSectors[i];
             Button button = thisButton.GetComponent<Button>();
             button.onClick.AddListener(() => ChangeSector(buttonSector));
+        }
+    }
+
+    void ShowPlanets() {
+        if (sectorData.planets != null) {
+            for (int p = 0; p < sectorData.planets.Length; p++) {
+                print("planet found: " + sectorData.planets[p].planetName);
+
+                //GameObject thisButton = Instantiate(landOnPlanetButton, transform.position, transform.rotation);
+                GameObject planetBox = Instantiate(planetDataBox, transform.position, transform.rotation);
+                planetBox.transform.parent = planetConnectionsBox;
+                planetBox.GetComponent<PlanetDataBoxPopulator>().PopulateData(sectorData.planets[p]);
+
+
+            }
+        } else {
+            print("no planets");
         }
     }
 

@@ -7,5 +7,6 @@ public class SectorData {
     public string sectorName;
     public string sectorFlavorText;
     public Sector[] connectedSectors;
+    public Planet[] planets;
 
 }
